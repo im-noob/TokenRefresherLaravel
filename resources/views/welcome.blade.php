@@ -80,24 +80,17 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md" id="csrf_token" style="font-size: 40px;font-weight: 900;">
                     Laravel
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-                <form method="POST" action="{{route('')}}">
-                    <input type="text" name="name"/>
+                <form method="POST" action="{{route('submit-form')}}">
+                    @csrf
+                    <input type="text" name="name" value="My name is Lakhan"/>
                     <input type="submit" />
                 </form>
+                <script>
+                    document.getElementById('csrf_token').innerHTML = document.getElementsByName('_token')[0].value;
+                </script>
             </div>
         </div>
     </body>

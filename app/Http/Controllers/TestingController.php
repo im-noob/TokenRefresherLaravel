@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class TestingController extends Controller
 {
-    //
+    public function test(Request $request){
+        dd($request->all());
+    }
 }
