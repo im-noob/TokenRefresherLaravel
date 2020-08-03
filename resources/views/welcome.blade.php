@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="caffeinated" content="true">
 
         <title>Laravel</title>
 
@@ -89,6 +90,14 @@
                     <input type="submit" />
                 </form>
                 <script>
+                    // TO Set the New Token
+                    $new_token = document.getElementsByName('csrf-token')[0].content;
+                    $all_token_element = document.getElementsByName('_token');
+                    $all_token_element.forEach(function($one_element){
+                        $one_element.value = $new_token;
+                    });
+
+                    // TO show the Token
                     document.getElementById('csrf_token').innerHTML = document.getElementsByName('_token')[0].value;
                 </script>
             </div>
